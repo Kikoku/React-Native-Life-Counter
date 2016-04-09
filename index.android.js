@@ -6,18 +6,13 @@ import React, {
   View
 } from 'react-native';
 
-import Counter from './components/Counter';
+import GamePad from './components/GamePad';
 
 class counter extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.playerTwo}>
-          <Counter/>
-        </View>
-        <View>
-          <Counter />
-        </View>
+        <GamePad/>
       </View>
     );
   }
@@ -29,19 +24,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  playerTwo: {
-    transform: [{rotate: '180deg'}]
   }
 });
 
