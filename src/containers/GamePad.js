@@ -1,6 +1,7 @@
 import React, { Component, View, Text, StyleSheet } from 'react-native';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import * as counterActions from '../actions/counterActions';
 
 import Counter from '../components/Counter';
 import Button from '../components/Button';
@@ -14,38 +15,32 @@ const styles = StyleSheet.create({
 class GamePad extends Component {
   constructor() {
     super();
-    this.handleReset = this.handleReset.bind(this);
-    this.handleValueUpdate = this.handleValueUpdate.bind(this);
-  }
-
-  handleReset() {
-
-  }
-
-  handleValueUpdate(playerNumber, valueChange) {
-
   }
 
   render() {
     const {players} = this.props.state;
+    const {actions} = this.props;
+
     return (
       <View>
         <View style={styles.playerTwo}>
           <Counter
-            handleValueUpdate={this.handleValueUpdate}
+            handleValueInc={actions.incrementPlayerOne}
+            handleValueDec={actions.decrementPlayerOne}
             player={players[0].player}
             value={players[0].value}
           />
         </View>
         <View>
           <Button
-            onPress={() => this.handleReset()}
+            onPress={() => actions.reset()}
             text="reset"
           />
         </View>
         <View>
           <Counter
-            handleValueUpdate={this.handleValueUpdate}
+            handleValueInc={actions.incrementPlayerTwo}
+            handleValueDec={actions.decrementPlayerTwo}
             player={players[1].player}
             value={players[1].value}
           />
@@ -57,6 +52,7 @@ class GamePad extends Component {
 
 export default connect(state => ({
   state: state.counter
-}), {
-
-})(GamePad);
+}),
+(dispatch) => ({
+  actions: bindActionCreators(counterActions, dispatch)
+}))(GamePad);
