@@ -6,13 +6,13 @@ import React, {
   View
 } from 'react-native';
 
-import GamePad from './components/GamePad';
+import App from './src/containers/App';
 
 class counter extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <GamePad/>
+        <App />
       </View>
     );
   }
