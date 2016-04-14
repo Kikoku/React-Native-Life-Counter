@@ -13,7 +13,7 @@ const defaultState = {
   ]
 };
 
-const counter = (state = defaultState, action) = {
+const counter = (state = defaultState, action = {}) => {
   switch (action.type) {
 
     case types.INCREMENT_PLAYER_ONE:
