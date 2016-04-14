@@ -1,6 +1,7 @@
 import React, { Component, View, Text, StyleSheet } from 'react-native';
-import Counter from './Counter';
-import Button from './Button';
+
+import Counter from '../components/Counter';
+import Button from '../components/Button';
 
 const styles = StyleSheet.create({
   playerTwo: {
