@@ -1,4 +1,6 @@
 import React, { Component, View, Text, StyleSheet } from 'react-native';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 import Counter from '../components/Counter';
 import Button from '../components/Button';
@@ -12,50 +14,20 @@ const styles = StyleSheet.create({
 class GamePad extends Component {
   constructor() {
     super();
-    this.state = {
-      players: [
-        {
-          player: 1,
-          value: 20
-        },
-        {
-          player: 2,
-          value: 20
-        }
-      ]
-    };
     this.handleReset = this.handleReset.bind(this);
     this.handleValueUpdate = this.handleValueUpdate.bind(this);
   }
 
   handleReset() {
-    this.setState({
-      players: [
-        {
-          player: 1,
-          value: 20
-        },
-        {
-          player: 2,
-          value: 20
-        }
-      ]
-    })
+
   }
 
   handleValueUpdate(playerNumber, valueChange) {
-    this.setState({
-      players: this.state.players.map((player, i) => {
-        if(playerNumber == player.player) {
-          player.value += valueChange;
-        }
-        return player;
-      })
-    })
+
   }
 
   render() {
-    const {players} = this.state;
+    const {players} = this.props.state;
     return (
       <View>
         <View style={styles.playerTwo}>
@@ -83,4 +55,8 @@ class GamePad extends Component {
   }
 }
 
-export default GamePad;
+export default connect(state => ({
+  state: state.counter
+}), {
+
+})(GamePad);
