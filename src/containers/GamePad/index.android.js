@@ -1,10 +1,10 @@
 import React, { Component, View, Text, StyleSheet } from 'react-native';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as counterActions from '../actions/counterActions';
+import * as counterActions from '../../actions/counterActions';
 
-import Counter from '../components/Counter';
-import Button from '../components/Button';
+import Counter from '../../components/Counter';
+import Button from '../../components/Button';
 
 const styles = StyleSheet.create({
   playerTwo: {
