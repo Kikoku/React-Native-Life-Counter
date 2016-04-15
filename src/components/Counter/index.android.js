@@ -1,5 +1,5 @@
 import React, { Component, View, Text } from 'react-native';
-import Button from './Button';
+import Button from '../Button';
 
 const Counter = ({player, value, handleValueInc, handleValueDec}) => (
   <View>
